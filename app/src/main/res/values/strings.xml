@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">webViewORTVxml</string>
+    <string name="btn">/api/v1/ads_open_rtb</string>
+    <string name="message">Request has been sent</string>
+</resources>
