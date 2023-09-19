@@ -4,5 +4,8 @@
         <domain includeSubdomains="true">offer01.rtty.in</domain>
         <domain includeSubdomains="true">localhost</domain>
         <domain includeSubdomains="true">192.168.64.1</domain>
+        <domain includeSubdomains="true">whatismybrowser.com</domain>
+        <domain includeSubdomains="true">offers.propellerads.com</domain>
+        <domain includeSubdomains="true">journaldev.com</domain>
     </domain-config>
 </network-security-config>
