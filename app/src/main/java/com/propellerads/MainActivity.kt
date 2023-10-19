@@ -55,10 +55,11 @@ class MainActivity : AppCompatActivity() {
             url,
             requestBody,
             { response ->
+                println(response.toString())
                 Log.i(MainActivity::class.toString(), response.toString())
                 Toast.makeText(
                     this,
-                    "Got request!",
+                    "Got response!",
                     Toast.LENGTH_LONG
                 ).show()
                 val myWebView: WebView = findViewById(R.id.webview)
