@@ -7,5 +7,6 @@
         <domain includeSubdomains="true">whatismybrowser.com</domain>
         <domain includeSubdomains="true">offers.propellerads.com</domain>
         <domain includeSubdomains="true">journaldev.com</domain>
+        <domain includeSubdomains="true">stanislavla.github.io</domain>
     </domain-config>
 </network-security-config>
