@@ -1,0 +1,85 @@
+{
+  "id": "007e348ae16d9c913fdbd81ddf76b942",
+  "imp": [
+    {
+      "id": "1",
+      "tagid": "fpznjnvorm",
+      "bidfloor": 0.5282145818181817,
+      "bidfloorcur": "USD",
+      "clickbrowser": 0,
+      "secure": 1,
+      "exp": 3000,
+      "rwdd": 0,
+      "banner": {
+        "w": 320,
+        "h": 480,
+        "pos": 0
+      }
+    }
+  ],
+  "app": {
+    "id": "e8512d49aed869b81cb8ff0026261e87",
+    "name": "Word Wars - Word game",
+    "cat": [
+      "IAB9"
+    ],
+    "bundle": "1245525123",
+    "publisher": {
+      "id": "515_11424"
+    },
+    "storeurl": "https:\/\/apps.apple.com\/app\/id1245525899"
+  },
+  "device": {
+    "ext": {
+      "ifv": "0C72E966-6EC7-407C-9360-F5E0BCC7483E",
+      "atts": 0
+    },
+    "dnt": 1,
+    "ua": "Mozilla\/5.0 (iPhone; CPU iPhone OS 16_5_1 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Mobile\/16",
+    "ip": "109.245.200.220",
+    "geo": {
+      "lat": 36.14059829711914,
+      "lon": -86.75080108642578,
+      "ipservice": 3,
+      "country": "RS",
+      "region": "TN",
+      "metro": "659",
+      "city": "Nashville",
+      "zip": "37210",
+      "type": 2
+    },
+    "carrier": "at&t internet",
+    "language": "en",
+    "make": "apple",
+    "model": "iphone11,6",
+    "os": "ios",
+    "osv": "16.5.1",
+    "js": 1,
+    "connectiontype": 2,
+    "devicetype": 4,
+    "ifa": "00000000-0000-0000-0000-000000000000",
+    "lmt": 1
+  },
+  "user": {
+    "id": "707bb515-36b0-4a60-9861-43be8e000e62"
+  },
+  "test": 0,
+  "at": 2,
+  "tmax": 285,
+  "allimps": 0,
+  "cur": [
+    "USD"
+  ],
+  "bcat": [
+    "IAB23"
+  ],
+  "badv": [
+    "my.com"
+  ],
+  "regs": {
+    "coppa": 0,
+    "ext": {
+      "gdpr": 0
+    }
+  }
+}

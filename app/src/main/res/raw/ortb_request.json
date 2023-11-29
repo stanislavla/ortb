@@ -1,0 +1,90 @@
+{
+  "id": "810708c5-5195-464f-8a9f-56916f69114d",
+  "imp": [
+    {
+      "id": "1",
+      "banner": {
+        "w": 320,
+        "h": 480,
+        "pos": 0
+      },
+      "tagid": "APK_PUSH",
+      "bidfloor": 0.56,
+      "bidfloorcur": "USD"
+    },
+    {
+      "id": "2",
+      "banner": {
+        "w": 320,
+        "h": 50,
+        "pos": 0
+      },
+      "tagid": "APK_PUSH",
+      "bidfloor": 0.56,
+      "bidfloorcur": "USD"
+    }
+  ],
+  "app": {
+    "id": "com.spaceship.nearme.gamecenter",
+    "name": "Space Odyssey",
+    "bundle": "com.spaceship.nearme.gamecenter",
+    "storeurl": "https://play.google.com/store/apps/details?id=com.spaceship.nearme.gamecenter",
+    "cat": [
+      "IAB24"
+    ],
+    "ver": "31",
+    "publisher": {
+      "id": "717studio"
+    }
+  },
+  "device": {
+    "geo": {
+      "lat": -3.267,
+      "lon": -79.9635,
+      "country": "EC",
+      "city": "Machala"
+    },
+    "ua": "Mozilla/5.0 (Linux; Android 12; Infinix X665E Build/SP1A.210812.016; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/119.0.6045.66 Mobile Safari/537.36",
+    "sua": {
+      "browsers": [
+        {
+          "brand": "google chrome",
+          "version": [
+            "v2.9.6.1"
+          ]
+        }
+      ],
+      "platform": {
+        "brand": "android",
+        "version": [
+          "12"
+        ]
+      },
+      "mobile": 1,
+      "architecture": "arm",
+      "bitness": "64",
+      "model": "Infinix X665E"
+    },
+    "ip": "177.234.221.115",
+    "devicetype": 1,
+    "make": "Infinix",
+    "model": "Infinix+X665E",
+    "os": "android",
+    "osv": "12",
+    "h": 722,
+    "w": 360,
+    "js": 1,
+    "language": "es",
+    "carrier": "NEDETEL S.A.",
+    "ifa": "1f4f2df5-b341-4c21-b6c3-ead9485c6434",
+    "didmd5": "2325550870d756531828085a4f60f38f"
+  },
+  "user": {
+    "id": "2325550870D756531828085A4F60F38F-10966047185EA8FDC75DB6B662ECD653F390BEBA"
+  },
+  "at": 1,
+  "tmax": 600,
+  "cur": [
+    "USD"
+  ]
+}
