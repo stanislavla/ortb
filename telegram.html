@@ -7,17 +7,34 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-<h1>Welcome to Mini App</h1>
-<button onclick="sendData()">Send Data to Bot</button>
+    <h1>Welcome to Mini App</h1>
 
-<script>
-    // Инициализация Web App API
-    Telegram.WebApp.ready();
+    <!-- Форма для ввода текста -->
+    <form id="dataForm">
+        <label for="userInput">Введите текст:</label>
+        <input type="text" id="userInput" name="userInput" placeholder="Введите текст" required>
+        <br><br>
+    </form>
 
-    function sendData() {
-        // Пример отправки данных в бот
-        Telegram.WebApp.sendData("Hello from the Mini App");
-    }
-</script>
+    <!-- Кнопка для отправки данных -->
+    <button onclick="sendData()">Send Data to Bot</button>
+
+    <script>
+        // Инициализация Web App API
+        Telegram.WebApp.ready();
+
+        function sendData() {
+            // Получаем текст, введённый пользователем
+            const inputData = document.getElementById('userInput').value;
+
+            // Проверяем, что поле не пустое
+            if (inputData) {
+                // Отправляем данные боту
+                Telegram.WebApp.sendData(inputData);
+            } else {
+                alert("Пожалуйста, введите текст перед отправкой.");
+            }
+        }
+    </script>
 </body>
 </html>
