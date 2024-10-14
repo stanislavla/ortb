@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Mini App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+<h1>Welcome to Mini App</h1>
+<button onclick="sendData()">Send Data to Bot</button>
+
+<script>
+    // Инициализация Web App API
+    Telegram.WebApp.ready();
+
+    function sendData() {
+        // Пример отправки данных в бот
+        Telegram.WebApp.sendData("Hello from the Mini App");
+    }
+</script>
+</body>
+</html>
