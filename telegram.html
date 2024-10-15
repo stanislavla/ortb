@@ -43,14 +43,9 @@
         }
     }
 
-    // Функция для обработки данных от бота (получение измененного текста)
-    Telegram.WebApp.onEvent('message', function(event) {
+    // Обработка данных от бота (через sendData)
+    window.Telegram.WebApp.onEvent('web_app_data', function(event) {
         const lowercaseText = event.data;
 
-        // Отображаем обработанный текст на фронтенде
-        document.getElementById('lowercaseText').innerText = lowercaseText;
-        document.getElementById('processedMessage').style.display = 'block';
-    });
-</script>
-</body>
-</html>
+        // Отображаем обработанный текст
+        document.getElementById('lowercaseText').innerText =
