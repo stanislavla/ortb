@@ -37,8 +37,11 @@
             // Логируем отправку данных
             console.log(`Отправляем данные: ${inputData}`);
 
-            // Отправляем данные боту
+            // Отправляем данные боту через WebApp.sendData
             Telegram.WebApp.sendData(inputData);
+
+            // Проверяем WebApp.initData, чтобы убедиться, что мы получили данные
+            console.log("WebApp initData:", Telegram.WebApp.initData);
 
             // Скрываем форму ввода
             document.getElementById('inputForm').style.display = 'none';
