@@ -34,4 +34,23 @@
         // Проверяем, что поле не пустое
         if (inputData) {
             // Отправляем данные боту
-            Telegram.WebApp.sendData(inputData
+            Telegram.WebApp.sendData(inputData);
+
+            // Скрываем форму ввода
+            document.getElementById('inputForm').style.display = 'none';
+        } else {
+            alert("Пожалуйста, введите текст перед отправкой.");
+        }
+    }
+
+    // Функция для обработки данных от бота (получение измененного текста)
+    Telegram.WebApp.onEvent('message', function(event) {
+        const lowercaseText = event.data;
+
+        // Отображаем обработанный текст на фронтенде
+        document.getElementById('lowercaseText').innerText = lowercaseText;
+        document.getElementById('processedMessage').style.display = 'block';
+    });
+</script>
+</body>
+</html>
