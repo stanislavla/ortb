@@ -7,59 +7,66 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-<h1>Welcome to Mini App</h1>
+    <h1>Welcome to Telegram Mini App</h1>
 
-<!-- Форма для ввода текста -->
-<div id="inputForm">
-    <label for="userInput">Введите текст:</label>
-    <input type="text" id="userInput" name="userInput" placeholder="Введите текст" required>
-    <br><br>
-    <button onclick="sendData()">Send Data to Bot</button>
-</div>
+    <!-- Форма для ввода текста -->
+    <div id="inputForm">
+        <label for="userInput">Введите текст:</label>
+        <input type="text" id="userInput" name="userInput" placeholder="Введите текст" required>
+        <br><br>
+        <button onclick="sendData()">Send Data to Bot</button>
+    </div>
 
-<!-- Сообщение после отправки данных -->
-<div id="processedMessage" style="display:none;">
-    <h2>Ваше сообщение в нижнем регистре:</h2>
-    <p id="lowercaseText"></p>
-</div>
+    <!-- Сообщение после отправки данных -->
+    <div id="processedMessage" style="display:none;">
+        <h2>Ваше сообщение в нижнем регистре:</h2>
+        <p id="lowercaseText"></p>
+    </div>
 
-<script>
-    // Инициализация Web App API
-    Telegram.WebApp.ready();
-    console.log("Telegram Web App is ready");
+    <script>
+        // Инициализация Web App API
+        Telegram.WebApp.ready(function() {
+            console.log("Telegram Web App is ready");
+        });
 
-    // Функция для отправки данных боту
-    function sendData() {
-        const inputData = document.getElementById('userInput').value;
+        // Функция для отправки данных боту
+        function sendData() {
+            const inputData = document.getElementById('userInput').value;
 
-        // Проверяем, что поле не пустое
-        if (inputData) {
-            // Логируем отправку данных
-            console.log(`Отправляем данные: ${inputData}`);
+            // Проверяем, что поле не пустое
+            if (inputData) {
+                // Логируем отправку данных
+                console.log(`Отправляем данные: ${inputData}`);
 
-            // Отправляем данные боту через WebApp.sendData
-            Telegram.WebApp.sendData(inputData);
+                // Отправляем данные боту через WebApp.sendData
+                Telegram.WebApp.sendData(inputData);
+                console.log("Данные отправлены через Telegram.WebApp.sendData");
 
-            // Проверяем WebApp.initData, чтобы убедиться, что мы получили данные
-            console.log("WebApp initData:", Telegram.WebApp.initData);
-
-            // Скрываем форму ввода
-            document.getElementById('inputForm').style.display = 'none';
-        } else {
-            alert("Пожалуйста, введите текст перед отправкой.");
+                // Скрываем форму ввода
+                document.getElementById('inputForm').style.display = 'none';
+            } else {
+                alert("Пожалуйста, введите текст перед отправкой.");
+            }
         }
-    }
 
-    // Обработка данных от бота (через sendData)
-    window.Telegram.WebApp.onEvent('web_app_data', function(event) {
-        const lowercaseText = event.data;
+        // Обработка события web_app_data для отладки
+        window.Telegram.WebApp.onEvent('web_app_data', function(event) {
+            const data = event.data;
+            console.log(`Получены данные от бота: ${data}`);
 
-        console.log(`Получены данные от бота: ${lowercaseText}`);
+            // Отображаем обработанный текст
+            document.getElementById('lowercaseText').innerText = data;
+            document.getElementById('processedMessage').style.display = 'block';
+        });
 
-        // Отображаем обработанный текст
-        document.getElementById('lowercaseText').innerText = lowercaseText;
-        document.getElementById('processedMessage').style.display = 'block';
-    });
-</script>
+        // Дополнительные события для отладки
+        Telegram.WebApp.onEvent('theme_changed', (event) => {
+            console.log('Theme changed event:', event);
+        });
+
+        Telegram.WebApp.onEvent('viewport_changed', (event) => {
+            console.log('Viewport changed event:', event);
+        });
+    </script>
 </body>
 </html>
