@@ -18,33 +18,20 @@
 </div>
 
 <!-- Сообщение после отправки данных -->
-<div id="confirmationMessage" style="display:none;">
-    <h2 id="confirmationText"></h2>
+<div id="processedMessage" style="display:none;">
+    <h2>Ваше сообщение в нижнем регистре:</h2>
+    <p id="lowercaseText"></p>
 </div>
 
 <script>
     // Инициализация Web App API
     Telegram.WebApp.ready();
 
+    // Функция для отправки данных боту
     function sendData() {
-        // Получаем текст, введённый пользователем
         const inputData = document.getElementById('userInput').value;
 
         // Проверяем, что поле не пустое
         if (inputData) {
             // Отправляем данные боту
-            Telegram.WebApp.sendData(inputData);
-
-            // Скрываем форму ввода
-            document.getElementById('inputForm').style.display = 'none';
-
-            // Показываем сообщение с подтверждением
-            document.getElementById('confirmationText').innerText = `Our bot got your message: ${inputData}`;
-            document.getElementById('confirmationMessage').style.display = 'block';
-        } else {
-            alert("Пожалуйста, введите текст перед отправкой.");
-        }
-    }
-</script>
-</body>
-</html>
+            Telegram.WebApp.sendData(inputData
