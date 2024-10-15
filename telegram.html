@@ -7,34 +7,44 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <h1>Welcome to Mini App</h1>
+<h1>Welcome to Mini App</h1>
 
-    <!-- Форма для ввода текста -->
-    <form id="dataForm">
-        <label for="userInput">Введите текст:</label>
-        <input type="text" id="userInput" name="userInput" placeholder="Введите текст" required>
-        <br><br>
-    </form>
-
-    <!-- Кнопка для отправки данных -->
+<!-- Форма для ввода текста -->
+<div id="inputForm">
+    <label for="userInput">Введите текст:</label>
+    <input type="text" id="userInput" name="userInput" placeholder="Введите текст" required>
+    <br><br>
     <button onclick="sendData()">Send Data to Bot</button>
+</div>
 
-    <script>
-        // Инициализация Web App API
-        Telegram.WebApp.ready();
+<!-- Сообщение после отправки данных -->
+<div id="confirmationMessage" style="display:none;">
+    <h2 id="confirmationText"></h2>
+</div>
 
-        function sendData() {
-            // Получаем текст, введённый пользователем
-            const inputData = document.getElementById('userInput').value;
+<script>
+    // Инициализация Web App API
+    Telegram.WebApp.ready();
 
-            // Проверяем, что поле не пустое
-            if (inputData) {
-                // Отправляем данные боту
-                Telegram.WebApp.sendData(inputData);
-            } else {
-                alert("Пожалуйста, введите текст перед отправкой.");
-            }
+    function sendData() {
+        // Получаем текст, введённый пользователем
+        const inputData = document.getElementById('userInput').value;
+
+        // Проверяем, что поле не пустое
+        if (inputData) {
+            // Отправляем данные боту
+            Telegram.WebApp.sendData(inputData);
+
+            // Скрываем форму ввода
+            document.getElementById('inputForm').style.display = 'none';
+
+            // Показываем сообщение с подтверждением
+            document.getElementById('confirmationText').innerText = `Our bot got your message: ${inputData}`;
+            document.getElementById('confirmationMessage').style.display = 'block';
+        } else {
+            alert("Пожалуйста, введите текст перед отправкой.");
         }
-    </script>
+    }
+</script>
 </body>
 </html>
