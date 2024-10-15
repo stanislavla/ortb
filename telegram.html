@@ -26,6 +26,7 @@
 <script>
     // Инициализация Web App API
     Telegram.WebApp.ready();
+    console.log("Telegram Web App is ready");
 
     // Функция для отправки данных боту
     function sendData() {
@@ -33,6 +34,9 @@
 
         // Проверяем, что поле не пустое
         if (inputData) {
+            // Логируем отправку данных
+            console.log(`Отправляем данные: ${inputData}`);
+
             // Отправляем данные боту
             Telegram.WebApp.sendData(inputData);
 
@@ -47,5 +51,12 @@
     window.Telegram.WebApp.onEvent('web_app_data', function(event) {
         const lowercaseText = event.data;
 
+        console.log(`Получены данные от бота: ${lowercaseText}`);
+
         // Отображаем обработанный текст
-        document.getElementById('lowercaseText').innerText =
+        document.getElementById('lowercaseText').innerText = lowercaseText;
+        document.getElementById('processedMessage').style.display = 'block';
+    });
+</script>
+</body>
+</html>
