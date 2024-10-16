@@ -17,10 +17,10 @@
         <button onclick="sendData()">Send Data to Bot</button>
     </div>
 
-    <!-- Сообщение после отправки данных -->
-    <div id="processedMessage" style="display:none;">
-        <h2>Ваше сообщение в нижнем регистре:</h2>
-        <p id="lowercaseText"></p>
+    <!-- Элемент для отображения ответа хоста -->
+    <div id="response" style="display:none;">
+        <h2>Host response:</h2>
+        <p id="hostResponse"></p>
     </div>
 
     <script>
@@ -35,37 +35,22 @@
 
             // Проверяем, что поле не пустое
             if (inputData) {
-                // Логируем отправку данных
                 console.log(`Отправляем данные: ${inputData}`);
-
-                // Отправляем данные боту через WebApp.sendData
-                Telegram.WebApp.sendData(inputData);
-                console.log("Данные отправлены через Telegram.WebApp.sendData");
-
-                // Скрываем форму ввода
-                document.getElementById('inputForm').style.display = 'none';
+                Telegram.WebApp.sendData(inputData); // Отправляем данные боту
+                document.getElementById('inputForm').style.display = 'none'; // Скрываем форму после отправки
             } else {
                 alert("Пожалуйста, введите текст перед отправкой.");
             }
         }
 
-        // Обработка события web_app_data для отладки
-        window.Telegram.WebApp.onEvent('web_app_data', function(event) {
-            const data = event.data;
-            console.log(`Получены данные от бота: ${data}`);
+        // Обработка данных, полученных от бота
+        Telegram.WebApp.onEvent('web_app_data', function(event) {
+            const hostResponse = event.data.message;
+            console.log(`Ответ от хоста: ${hostResponse}`);
 
-            // Отображаем обработанный текст
-            document.getElementById('lowercaseText').innerText = data;
-            document.getElementById('processedMessage').style.display = 'block';
-        });
-
-        // Дополнительные события для отладки
-        Telegram.WebApp.onEvent('theme_changed', (event) => {
-            console.log('Theme changed event:', event);
-        });
-
-        Telegram.WebApp.onEvent('viewport_changed', (event) => {
-            console.log('Viewport changed event:', event);
+            // Отображаем результат в Mini App
+            document.getElementById('hostResponse').innerText = hostResponse;
+            document.getElementById('response').style.display = 'block';
         });
     </script>
 </body>
