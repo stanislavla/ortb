@@ -36,22 +36,28 @@
             // Проверяем, что поле не пустое
             if (inputData) {
                 console.log(`Отправляем данные: ${inputData}`);
-                Telegram.WebApp.sendData(inputData); // Отправляем данные боту
-                document.getElementById('inputForm').style.display = 'none'; // Скрываем форму после отправки
+
+                // Используем fetch для отправки данных боту, не используя Telegram.WebApp.sendData()
+                fetch('https://f8be-78-140-191-99.ngrok-free.app/YOUR_BOT_TOKEN', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ text: inputData })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Обрабатываем ответ от сервера и показываем его в интерфейсе
+                    console.log(`Ответ от бота: ${data.message}`);
+                    document.getElementById('hostResponse').innerText = data.message;
+                    document.getElementById('response').style.display = 'block';
+                    document.getElementById('inputForm').style.display = 'none';
+                })
+                .catch(error => console.error('Ошибка:', error));
             } else {
                 alert("Пожалуйста, введите текст перед отправкой.");
             }
         }
-
-        // Обработка данных, полученных от бота
-        Telegram.WebApp.onEvent('web_app_data', function(event) {
-            const hostResponse = event.data; // Используем переданные данные
-            console.log(`Ответ от хоста: ${hostResponse}`);
-
-            // Отображаем результат в Mini App
-            document.getElementById('hostResponse').innerText = hostResponse;
-            document.getElementById('response').style.display = 'block';
-        });
     </script>
 </body>
 </html>
