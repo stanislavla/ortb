@@ -29,7 +29,7 @@
             console.log("Telegram Web App is ready");
         });
 
-        // Функция для отправки данных на промежуточный сервер (Backend)
+        // Функция для отправки данных боту через HTTP-запрос
         function sendData() {
             const inputData = document.getElementById('userInput').value;
 
@@ -37,8 +37,8 @@
             if (inputData) {
                 console.log(`Отправляем данные: ${inputData}`);
 
-                // Используем fetch для отправки данных на промежуточный сервер
-                fetch('https://ваш_сервер.com/send_to_bot', {
+                // Используем fetch для отправки данных напрямую на сервер бота
+                fetch('https://ВАШ_СЕРВЕР_ИЛИ_NGROK_URL', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
