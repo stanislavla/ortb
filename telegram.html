@@ -45,7 +45,7 @@
 
         // Обработка данных, полученных от бота
         Telegram.WebApp.onEvent('web_app_data', function(event) {
-            const hostResponse = event.data.message;
+            const hostResponse = event.data; // Используем переданные данные
             console.log(`Ответ от хоста: ${hostResponse}`);
 
             // Отображаем результат в Mini App
