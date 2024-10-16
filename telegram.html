@@ -29,7 +29,7 @@
             console.log("Telegram Web App is ready");
         });
 
-        // Функция для отправки данных боту
+        // Функция для отправки данных на промежуточный сервер (Backend)
         function sendData() {
             const inputData = document.getElementById('userInput').value;
 
@@ -37,8 +37,8 @@
             if (inputData) {
                 console.log(`Отправляем данные: ${inputData}`);
 
-                // Используем fetch для отправки данных боту, не используя Telegram.WebApp.sendData()
-                fetch('https://f8be-78-140-191-99.ngrok-free.app/YOUR_BOT_TOKEN', {
+                // Используем fetch для отправки данных на промежуточный сервер
+                fetch('https://ваш_сервер.com/send_to_bot', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -48,7 +48,7 @@
                 .then(response => response.json())
                 .then(data => {
                     // Обрабатываем ответ от сервера и показываем его в интерфейсе
-                    console.log(`Ответ от бота: ${data.message}`);
+                    console.log(`Ответ от сервера: ${data.message}`);
                     document.getElementById('hostResponse').innerText = data.message;
                     document.getElementById('response').style.display = 'block';
                     document.getElementById('inputForm').style.display = 'none';
